@@ -1,0 +1,11 @@
+{
+  "name": "VidyaGram — Learning platform",
+  "short_name": "VidyaGram",
+  "description": "Inclusive multilingual learning for government schools. By Team AROHA.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f7f9fc",
+  "theme_color": "#2b50d4",
+  "icons": [{ "src": "./favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --focus: #2b50d4;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-[#f5f7fb] text-[15px] leading-relaxed text-ink-800 antialiased;
+    font-family: ui-sans-serif, system-ui, 'Segoe UI', 'Noto Sans', 'Noto Sans Devanagari', 'Nirmala UI', Roboto, Arial,
+      sans-serif;
+  }
+  h1, h2, h3, h4 {
+    @apply text-ink-900;
+    font-weight: 700;
+    letter-spacing: -0.012em;
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  button, a, input, select, textarea, summary {
+    -webkit-tap-highlight-color: transparent;
+  }
+  input[type='checkbox'], input[type='radio'] {
+    accent-color: #2b50d4;
+  }
+  ::selection {
+    background: #dbe6ff;
+  }
+  [dir='rtl'] {
+    text-align: right;
+  }
+  /* Large text preference */
+  .text-large {
+    font-size: 17px;
+  }
+  .text-large .text-xs {
+    font-size: 0.8rem;
+  }
+  .text-large .text-sm {
+    font-size: 0.95rem;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-ink-200/80 bg-white shadow-card;
+  }
+  .subtle-grid {
+    background-image: radial-gradient(#c9d5e6 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .notes-body {
+    @apply whitespace-pre-wrap text-[15px] leading-7 text-ink-700;
+  }
+  .notes-body strong {
+    @apply text-ink-900;
+  }
+  .scroll-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #b3c1d4 transparent;
+  }
+  .scroll-thin::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  .scroll-thin::-webkit-scrollbar-thumb {
+    background: #c3cfdf;
+    border-radius: 999px;
+  }
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+@keyframes swing {
+  from {
+    transform: rotate(-24deg);
+  }
+  to {
+    transform: rotate(24deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Per-user accessibility preference, applied on <body> by AppPreferences. */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* The reader and print view should stay clean */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
