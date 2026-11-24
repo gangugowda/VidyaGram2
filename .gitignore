@@ -2,7 +2,16 @@ node_modules/
 dist/
 dist-ssr/
 *.local
-.vite/
+.env
+.env.*
+!.env.example
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
 .DS_Store
 Thumbs.db
 *.log
+coverage/
+.vite/
+*.tsbuildinfo
