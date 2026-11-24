@@ -1,28 +1,27 @@
 {
   "name": "vidyagram",
+  "version": "0.2.0",
   "private": true,
-  "version": "1.0.0",
-  "description": "VidyaGram — an inclusive, multilingual learning platform for government schools. Built by Team AROHA.",
-  "type": "module",
+  "description": "VidyaGram — multilingual learning platform for government schools. Monorepo: web app + API.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router-dom": "^6.26.2"
+    "dev": "concurrently -n api,web -c blue,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "npm run dev -w @vidyagram/api",
+    "dev:web": "npm run dev -w @vidyagram/web",
+    "build": "npm run build -w @vidyagram/web && npm run build -w @vidyagram/api",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test -w @vidyagram/api",
+    "lint": "npm run typecheck",
+    "db:reset": "npm run db:reset -w @vidyagram/api",
+    "db:seed": "npm run db:seed -w @vidyagram/api"
   },
   "devDependencies": {
-    "@types/react": "^18.3.5",
-    "@types/react-dom": "^18.3.0",
-    "@vitejs/plugin-react": "^4.3.1",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.45",
-    "tailwindcss": "^3.4.10",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.3"
+    "concurrently": "^9.1.0"
+  },
+  "engines": {
+    "node": ">=20.11"
   }
 }

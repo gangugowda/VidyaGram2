@@ -1,0 +1,35 @@
+{
+  "name": "@vidyagram/shared",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Domain model, pure helpers and demo dataset shared by the VidyaGram web app and API.",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./types": {
+      "types": "./src/types.ts",
+      "default": "./src/types.ts"
+    },
+    "./utils": {
+      "types": "./src/utils.ts",
+      "default": "./src/utils.ts"
+    },
+    "./seed": {
+      "types": "./src/seed/index.ts",
+      "default": "./src/seed/index.ts"
+    },
+    "./contracts": {
+      "types": "./src/contracts.ts",
+      "default": "./src/contracts.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
